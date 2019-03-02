@@ -5,7 +5,6 @@ from .model import Category, Item
 import time, telegram
 
 
-
 def generate_menu_page(current_page):
     items_per_page = 5
     current_category = 1
@@ -47,14 +46,14 @@ def menu(bot, update):
 
 def next_page(bot, update):
     query = update.callback_query
-    current_page = int(query.data)
+    page = int(query.data)
     keyboard = [[
-        InlineKeyboardButton("<<", callback_data=str(current_page-2)),
-        InlineKeyboardButton("<", callback_data=str(current_page-1)),
-        InlineKeyboardButton(">", callback_data=str(current_page+1)),
-        InlineKeyboardButton(">>", callback_data=str(current_page+2))
+        InlineKeyboardButton("<<", callback_data=str(1)),
+        InlineKeyboardButton("<", callback_data=str(page-1)),
+        InlineKeyboardButton(">", callback_data=str(page+1)),
+        InlineKeyboardButton(">>", callback_data=str(page+2))
     ]]
-    text = "{}".format(generate_menu_page(current_page))
+    text = "{}".format(generate_menu_page(page))
     query.edit_message_text(text=text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode='HTML')
 
 
@@ -74,6 +73,7 @@ def help(bot, update):
 def error(bot, update):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
+
 
 bot.dispatcher.add_handler(CommandHandler('menu', menu))
 bot.dispatcher.add_handler(CallbackQueryHandler(next_page))

@@ -9,7 +9,7 @@ LOG_LEVEL_DEBUG = True
 TOKEN = config('TOKEN')
 
 APPLICATIONS = [
-    "pizza"
+    "food"
 ]
 
 RESTAURANTS = [

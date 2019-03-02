@@ -26,7 +26,7 @@ def insert_csv_in_database():
             name="Pizzeria del Rondone",
             address="Via del Rondone, Bologna, 40122"
         ).execute()
-        with open("pizza/menu.csv") as f:
+        with open("food/menu.csv") as f:
             csv_reader = csv.reader(f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             for row in csv_reader:
                 category = Category.select().where(Category.name == row[0])
@@ -100,7 +100,7 @@ def insert_in_database(restaurant_name, address, menu):
 def generate_csv(restaurant, address, menu):
     logger.debug("Generating csv file for Restaurant {name}...".format(name=restaurant))
     restaurant_slug = slugify(restaurant)
-    with open("pizza/data/{slug}.csv".format(slug=restaurant_slug), "w") as f:
+    with open("food/data/{slug}.csv".format(slug=restaurant_slug), "w") as f:
         f.write("# Restaurant: {name}\n# Address: {address}\n".format(name=restaurant, address=address))
         fieldnames=["category", "name", "description", "price"]
         csv_writer = csv.DictWriter(f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL, fieldnames=fieldnames)
