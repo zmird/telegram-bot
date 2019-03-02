@@ -1,67 +1,71 @@
 from common import bot, logger
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, RegexHandler
 from .model import Category, Item
-import time
+import time, telegram
 
 
-default_category = 1
-item_range = 10
-category_range = 4
 
+def generate_menu_page(current_page):
+    items_per_page = 5
+    current_category = 1
+    items = []
+    item_count = 0
+    for category in Category.select():
+        items = Item.select().where(Item.category == category.id)
+        print(len(items))
+        item_count += len(items)
+        if item_count >= items_per_page*current_page:
+            break
 
-def generate_text(category=default_category):
-    items = Item.select().where(Item.category == category)
-    text = ""
-    for item in items[0:item_range]:
-        text += item.name + '\n'
+    starting_item = item_count - items_per_page*current_page
+    last_item = starting_item+items_per_page
+    page_items = items[starting_item:last_item]
+    
+    text = "Category " + category.name + "\n-------------------\n"
+    for item in page_items:
+        text += "<b>{name}</b>\t{price}\n<i>{description}</i>\n/order_{item_id}\n\n".format(name=item.name, 
+            price=item.price, description=item.description, item_id=item.id) 
+
+    text += "-------------------" + "\n" + str(current_page)
 
     return text
+    
 
-
-def generate_buttons(category=default_category):
+def menu(bot, update):
     keyboard = [[
-        InlineKeyboardButton("<", callback_data='left'),
-        InlineKeyboardButton(">", callback_data='right')
+        InlineKeyboardButton("<<", callback_data='0'),
+        InlineKeyboardButton("<", callback_data='1'),
+        InlineKeyboardButton(">", callback_data='2'),
+        InlineKeyboardButton(">>", callback_data='3')
     ]]
-    for category in Category.select().where(default_category <= Category.id <= (default_category+category_range)):
-        keyboard.append([InlineKeyboardButton(category.name, callback_data=str(category.id))])
-    
-    keyboard.append([
-        InlineKeyboardButton("<", callback_data='category_left'),
-        InlineKeyboardButton(">", callback_data='category_right')
-    ])
 
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    return reply_markup
-    
-
-def start(bot, update):
-    keyboard = []
-    for category in Category.select():
-        keyboard.append([InlineKeyboardButton(category.name, callback_data=str(category.id))])
-
-    update.message.reply_text(generate_text(), reply_markup=generate_buttons())
+    update.message.reply_text(text=generate_menu_page(1), reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=telegram.ParseMode.HTML)
+    #bot.send_message(chat_id=update.message.chat_id, text=generate_menu_page(1), reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=telegram.ParseMode.HTML)
+    #bot.send_message(chat_id=update.message.chat_id, text="<b>bold</b> \n <i>italic</i> <a href='http://google.com'>link</a>.", parse_mode=telegram.ParseMode.HTML)
 
 
-def press_button(bot, update):
+def next_page(bot, update):
     query = update.callback_query
-    category = Category.select().where(Category.id == query.data).get()
+    current_page = int(query.data)
+    keyboard = [[
+        InlineKeyboardButton("<<", callback_data=str(current_page-2)),
+        InlineKeyboardButton("<", callback_data=str(current_page-1)),
+        InlineKeyboardButton(">", callback_data=str(current_page+1)),
+        InlineKeyboardButton(">>", callback_data=str(current_page+2))
+    ]]
+    text = "{}".format(generate_menu_page(current_page))
+    query.edit_message_text(text=text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode='HTML')
 
-    query.edit_message_text(text="Categoria {}:\n{}".format(category.name, generate_text(category)), reply_markup=generate_buttons())
 
-
-def echo(bot, update):
-    # Any send_* methods return the sent message object
-    msg = update.message.reply_text("Sorry, you're on your own, kiddo.")
-    time.sleep(5)
-    # you can explicitly enter the details
-    bot.edit_message_text(chat_id=update.message.chat_id, 
-                          message_id=msg.message_id,
-                          text="Seriously, you're on your own, kiddo.")
-    # or use the shortcut (which pre-enters the chat_id and message_id behind)
-    msg.edit_text("Seriously, you're on your own, kiddo.")
-
+def order(bot, update):
+    item_id = int(update.message.text.replace('/order_', ''))
+    try:
+        item = Item.get(Item.id == item_id)
+        update.message.reply_text("Added {item_name} to order".format(item_name=item.name))
+    except:
+        update.message.reply_text("Item not found")
+        
 
 def help(bot, update):
     update.message.reply_text("Use /start to test this bot.")
@@ -71,7 +75,8 @@ def error(bot, update):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
-bot.dispatcher.add_handler(CommandHandler('start', start))
-bot.dispatcher.add_handler(CallbackQueryHandler(press_button))
-bot.dispatcher.add_handler(CommandHandler('help', echo))
+bot.dispatcher.add_handler(CommandHandler('menu', menu))
+bot.dispatcher.add_handler(CallbackQueryHandler(next_page))
+bot.dispatcher.add_handler(RegexHandler('^/order_[\d]+$', order))
+bot.dispatcher.add_handler(CommandHandler('help', help))
 bot.dispatcher.add_error_handler(error)

@@ -1,6 +1,7 @@
 import settings, importlib
 from common import bot, logger
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import database
 
 
 def main():
@@ -22,7 +23,7 @@ def main():
     # Imports all handlers inside listed apps
     for application in settings.APPLICATIONS:
         try:
-            logger.debug("Importing " + application + " handlers")
+            logger.debug("Importing {application_name} handlers".format(application_name=application))
             importlib.import_module(application + ".handlers") # Dinamic import
         except Exception as e:
             logger.debug(e)
