@@ -1,0 +1,115 @@
+# Restaurant: Taj Mahal Indian Food
+# Address: Via Capo di Lucca, 2, Bologna, 40126
+Menù;Menù Doner;kebab con panino o rotolo, patatine e coca cola;7.0
+Menù;Maxi Menù;maxi kebab, patate fritte e coca cola;7.5
+Menù;Menù Pratha;pratha kebab, patate fritte e coca cola;8.5
+Menù;Doner King Menù;doner king, pane e coca cola;9.0
+Menù;Menù Alette di Pollo;alette di pollo con patate fritte e coca cola;7.0
+Menù;Menù Falafel;falafel rotolo o panino con patate fritte e coca cola;7.0
+Antipasti;Mix Pakora;verdure miste con pastella di farina di ceci, pane indiano, insalata, pomodori e salse;4.5
+Antipasti;Falafel;falafel, salse, pane, insalata e pomodoro;5.5
+Antipasti;Samosa;"sandwich indiano ripieno di patate, pomodoro, insalata e salse
+2 pezzi";3.5
+Antipasti;Sabzi Samosa;"sandwich indiano ripieno di verdure, insalata, pomodoro e salse
+2 pezzi";3.5
+Antipasti;Keema Samosa;sandwich indiano, ripieno di carne macinata, pomodoro, insalata e salse, 2 pezzi;4.5
+Antipasti;Patate Fritte;ketchup o maionese in busta;2.5
+Antipasti;Allo Kiticki;"polpette di patate speziate, salse indiane, insalata e pomodoro
+2 pezzi";3.5
+Antipasti;Chicken Roll;"involtini di pollo e verdura, insalata, pomodoro e salse
+3 pezzi";5.0
+Antipasti;Tandoori Allo;patate ripiene con formaggio, spezie, insalata, salse, pomodoro e pane;5.5
+Antipasti;Roll Vegetariano;"involtini di verdure miste con insalata e pomodoro
+3 pezzi";3.0
+Antipasti;Chicken Nuggets;"crocchette di pollo con patate fritte
+5 pezzi";5.0
+Antipasti;Shami Kebab;polpette di pollo e misto di legumi macinato con salse;4.0
+Antipasti;Onion Rings;anelli di cipolla fritte con salse;3.0
+Antipasti;Rayta;salsa di yogurt con cipolle, pomodoro, cetrioli e spezie;3.0
+Antipasti;Misto di Antipasti;tutti i tipi di antipasti misto;10.0
+Antipasti;Nuggets Parmigiana;nuggets di melanzane e formaggio;4.0
+Kebab Carne;Doner King Kebab;carne al girarrosto, riso basmati con verdure, insalata, patate fritte, pomodoro e salse;8.0
+Kebab Carne;Doner Girarrosto Panino;girarrosto di pollo, insalata, patate fritte, pomodoro e salse;4.5
+Kebab Carne;Pratha Kebab;"pane ripieno di burro con 
+carne di pollo al forno speziato, sottiletta, insalata, pomodoro, 
+cipolla, patatine, yogurt, ketchup, maionese e salsa piccante";6.5
+Kebab Carne;Maxi Kebab;girarrosto di pollo, formaggio, insalata, pomodoro, salse e patatine fritte;6.5
+Kebab Carne;Kebab in Piatto;girarrosto di pollo, patate fritte, insalata, pomodoro, salse e pane;6.5
+Kebab Carne;Doner Kebab Plater;carne di girarrosto, insalata, salse, pane e patate fritte;6.5
+Kebab Carne;Maxi Kebab Plater;carne di girarrosto, insalata, salse, pane con formaggio e patate fritte;7.5
+Kebab Carne;Pratha Kebab Plater;carne di pollo macinato al forno, insalata, salse, patate fritte e pane con burro;8.0
+Kebab Carne;Maxi Seekh Kebab Plater;carne di pollo macinato al forno, insalata, salse, patate fritte e pane con formaggio;7.5
+Kebab Carne;Ticka Boti Kebab;petto di pollo al forno con insalata, salse, patate fritte e pane;7.5
+Kebab Carne;Taj Mahal Special Kebab;carne di girarrosto, pollo macinato al forno, falafel con insalata, salse, patate fritte e pane;8.0
+Kebab Carne;Rotolo Doner Girarrosto;girarrosto di pollo, insalata, patate fritte, pomodoro e salse;5.0
+Kebab Vegetariano;Falafel Kebab;falafel, insalata, patate fritte, pomodoro e salse;5.0
+Kebab Vegetariano;Sabzi Kebab;verdure miste, insalata, pomodoro, patate fritte e salse;4.0
+Kebab Vegetariano;Madrasi Kebab;polpette di patate, insalata, salse, pomodoro e patate fritte;4.0
+Kebab Vegetariano;Pakora Kebab;verdure miste con pastella di farina di ceci, pomodoro, insalata, salse e patate fritte;4.0
+Piatti di Grill;Pollo Tandoori;pollo al forno speziato, pane, insalata, pomodoro, patate fritte, limone e salse;8.0
+Piatti di Grill;Pollo Ticka;pezzi di pollo marinati con yogurt e cotti al forno, limone, insalata, pomodoro, pane e salse;8.0
+Piatti di Grill;Seekh Kebab;macinato di pollo al forno, pane, patate fritte, pomodoro, insalata e salse;7.0
+Piatti di Grill;Shahi Chicken;polpette di pollo speziate, patate fritte, insalata, pomodoro, pane e salse;6.5
+Piatti di Carne;M. Curry Nan;pollo al curry e pane;6.5
+Piatti di Carne;M. Curry Chawal;pollo al curry, riso basmati e salsa;7.5
+Piatti di Carne;Kofta Nan;polpette di pollo al curry e pane;6.5
+Piatti di Carne;Kofta Chawal;polpette di pollo al curry, riso basmati e salse;8.0
+Piatti di Carne;Mot. Curry Nan;agnello al curry e pane;7.0
+Piatti di Carne;Mot. Curry Chawal;agnello al curry, riso basmati e salse;8.0
+Piatti di Carne;M. Biryani;riso basmati con pollo, insalata, pomodori e salsa;7.0
+Piatti di Carne;Mot. Biryani;riso basmati con agnello, insalata, pomodoro e salsa;7.5
+Piatti di Carne;Mix Plate Gosht;piatto unico di verdure, lenticchie, carne, riso basmati e pane;10.0
+Piatti di Carne;Motton Chana;agnello con ceci e pane;7.5
+Piatti di Carne;Ginja Chawal;gamberetti in salsa indiana e riso basmati;8.5
+Piatti di Carne;Ginja Masala Nan;gamberetti in salsa indiana e pane;7.5
+Piatti di Carne;Murg Chana;pollo con ceci e pane;7.0
+Piatti di Carne;Palak Gosht;spinaci con agnello e pane;7.5
+Piatti di Carne;Tandoori Biriyani;riso speziato e pollo al forno con salse;8.5
+Piatti di Carne;Seekh Kebab Biriyani;riso speziato con macinato di pollo al forno e salse;7.5
+Piatti di Carne;Doner Biriyani;riso con carne di kebab di pollo e salse;7.0
+Piatti di Carne;Ginga Biriyani;riso con gamberetti e salse;7.0
+Piatti di Carne;Murg Panir;pollo con formaggio e pane;7.0
+Piatti di Carne;Achar Gosht;carne di agnello con salsa indiana piccante e pane;7.5
+Specialità di Carne;Kebab Curry con Pane;;6.5
+Specialità di Carne;Kebab Curry con Riso;;7.5
+Specialità di Carne;Spinaci con Pollo e Pane;;7.0
+Specialità di Carne;Spinaci con Pollo e Riso;;7.5
+Specialità di Carne;Spinaci con Agnello e Riso;;8.0
+Specialità di Carne;Agnello, Ceci e Riso;;8.5
+Specialità di Carne;Pollo con Ceci e Riso;;8.0
+Specialità di Carne;Pollo, Lenticchie e Pane;;7.5
+Specialità di Carne;Pollo, Lenticchie e Riso;;8.0
+Specialità di Carne;Lenticchie, Agnello e Pane;;7.5
+Specialità di Carne;Lenticchie, Agnello e Riso;;8.5
+Specialità di Carne;Queema Mater;carne macinata di manzo con piselli e spezie con pane;6.0
+Specialità di Carne;Murg Vindaloo;pollo con salsa vindaloo molto piccante e pane;7.0
+Specialità di Carne;Motton Vindaloo;agnello con salsa vindaloo molto piccante e pane;7.5
+Piatti Vegetariani;Dal Nan;lenticchie con pane indiano;5.5
+Piatti Vegetariani;Dal Chawal;lenticchie, riso basmati e salsa;6.5
+Piatti Vegetariani;Chana Masala;ceci con salsa e pane;5.5
+Piatti Vegetariani;Sabzi Nan;verdure e pane;5.0
+Piatti Vegetariani;Sabzi Biryani;riso basmati con verdure miste e salsa indiana;5.5
+Piatti Vegetariani;Plain Rice;riso basmati bianco;3.0
+Piatti Vegetariani;Sabzi Kofta;polpette di verdure e pane;5.5
+Piatti Vegetariani;Palak Panir;spinaci con formaggio e pane;6.0
+Piatti Vegetariani;Mix Plate Vegetariano;piatto unico vegetariano con riso basmati, verdure, lenticchie e pane;9.0
+Piatti Vegetariani;Piselli, Formaggio e Spezie con Pane;;6.0
+Piatti Vegetariani;Chana Masala;ceci con salsa e riso;6.5
+Pani Indiani;Nan;pane indiano di farina bianca;1.2
+Pani Indiani;Chapati;pane indiano di farina integrale;1.2
+Pani Indiani;Pratha;pane con burro;2.0
+Pani Indiani;Nan Panir;pane ripieno con formaggio indiano;2.5
+Pani Indiani;Sabzi Pratha;pane ripieno con verdure miste;2.0
+Pani Indiani;Roghni Nan;pane con semi di sesamo;2.0
+Pani Indiani;Lehsan Nan;pane con aglio;2.0
+Pani Indiani;Afghani Pratha;pane ripieno con cipolla e spezie;2.0
+Pani Indiani;Aloo Nan;pane ripieno con patate e spezie;2.0
+Pani Indiani;Kashmiri Nan;pane ripieno con frutta secca;2.0
+Pani Indiani;Kima Nan;pane ripieno con carne macinata;4.0
+Dolci;Kheer;riso, latte e pistacchio;3.0
+Bevande;Acqua Naturale;;1.0
+Bevande;Acqua Frizzante;;1.0
+Bevande;Bibita in Lattina;;1.5
+Bevande;Bibita 1,5L;;3.0
+Bevande;Bibita Lassi;bevanda indiana a base di yogurt frullato;1.5
+Bevande;Bibita Mango Lassi;bevanda indiana a base di yogurt al mango frullato;2.0

@@ -1,0 +1,77 @@
+# Restaurant: Sensazioni
+# Address: Via Bainsizza, 4/A, Bologna, 40133
+Crea la Tua Piadina;Componi la Tua Piadina Base e Salume;;5.0
+Crea la Tua Piadina;Componi la Tua Piadina Base, Salume e Formaggio;;5.5
+Crea la Tua Piadina;Componi la Tua Piadina Base, Salume e Verdure;;5.5
+Crea la Tua Piadina;Componi la Tua Piadina Base, Salume, Formaggio e Verdure;;6.0
+Crea la Tua Piadina;Componi la Tua Piadina Base e Formaggio;;4.5
+Crea la Tua Piadina;Componi la Tua Piadina Base, Formaggio e Verdure;;5.5
+Crea la Tua Piadina;Componi la Tua Piadina Base e Verdure;;5.5
+Piadine;Piada Vuota;;1.2
+Piadine;Piada Ambrogio;mezza piada con un ingrediente a scelta;2.0
+Sensazioni;Quiete;hamburger, insalata e pomodoro;6.5
+Sensazioni;Malizia;bresaola, rucola, grana e glassa di balsamico;6.5
+Sensazioni;Ottimismo;hamburger, fontina e insalata;6.5
+Sensazioni;Passione;mozzarella di bufala, pomodoro, origano e basilico fresco;6.5
+Sensazioni;Frenesia;speck, brie e radicchio rosso;6.5
+Sensazioni;Golosita;bresaola, sedano e pomodorini;6.5
+Sensazioni;Ira;salame piccante, gorgonzola e verdure alla griglia;6.5
+Sensazioni;Oblio;melanzane grill, grana e pomodoro fresco;6.5
+Sensazioni di Affetto;Avvocato;brie, rucola, pomodorini e aceto balsamico;6.0
+Sensazioni di Affetto;Ghigo;prosciutto crudo, grana, insalata e pomodorini;6.0
+Sensazioni di Affetto;Ingegnere;bresaola, straccino e zucchine;6.0
+Sensazioni di Affetto;Principe;prosciutto cotto e caciotta castel S.Pietro;5.0
+Sensazioni di Affetto;Tato;prosciutto crudo;5.5
+Sensazioni di Affetto;Papapoli;salame piccante, pecorino e melanzane;6.0
+Sensazioni di Affetto;Piada Rianimazione;piada al prosciutto cotto + torta + acqua;6.0
+Sensazioni di Freschezza;Lo Scoglio;squacquerone, acciughe, pomodorini e insalata;6.5
+Sensazioni di Freschezza;Sunny;pollo, insalata, funghi e maionese;7.0
+Sensazioni di Freschezza;Il Corallo;bacon, valeriana e glassa di balsamico;7.0
+Sensazioni di Freschezza;L'Abbronzata;wurstel, senape, radicchio e rucola;6.5
+Sensazioni di Freschezza;L'Ancora;ricotta, pomodorini, rucola e tacchino;6.5
+Sensazioni di Freschezza;Ferragosto;pollo, ricotta, sedano e pomodorini;7.0
+Sensazioni di Freschezza;Il Bagnino;pesto modenese, bacon, insalata e grana;7.0
+Sensazioni di Freschezza;Il Faro;formaggio spalmabile e marmellata di fragole;5.0
+Specialità;Cotoletta di Pollo con Patate;;7.0
+Piatti Freddi;Farro, Basilico e Pomodorino;con scelta tra pollo o prosciutto cotto o mozzarella di bufala o tonno o mozzarelline;6.0
+Piatti Freddi;Caprese;valeriana, pomodoro pachino e mozzarelline;7.0
+Piatti Freddi;Bresaola, Rucola e Grana;bresaola, rucola e grana;7.0
+Crescioni;Crescione con Prosciutto Cotto, Mozzarella e Funghi;;6.0
+Crescioni;Crescione con Spinaci, Ricotta e Salame Piccante;;6.0
+Crescioni;Crescione con Verdure Grigliate e Scamorza;;6.0
+Crescioni;Crescione con Cotto, Mozzarella e Carciofi;;6.0
+Crescioni;Crescione con Pancetta, Patate Lesse e Provola;;6.0
+Crescioni;Crescioni con Mozzarella, Pomodoro Fresco, Grana e Origano;;6.0
+Insalate;Insalata con Cotto;prosciutto cotto, fagioli, mais, pomodorini, finocchio, insalata e carote;7.0
+Insalate;Insalata con Pollo;petto di pollo, fagioli, mais, pomodorini, finocchio, insalata e carote;7.0
+Insalate;Insalata con Bufala;mozzarella di bufala, fagioli, mais, pomodorini, finocchio, insalata e carote;7.0
+Insalate;Insalata con Mozzarelline;mozzarelline, fagioli, mais, pomodorini, finocchio, insalata e carote;7.0
+Insalate;Insalata con Tonno;tonno, fagioli, mais, pomodorini, finocchio, insalata e carote;7.0
+Fritti;Patate al Forno;;3.5
+Fritti;Patate Fritte;;2.5
+Fritti;Componi il Cestino di Fritti;a scelta una porzione di carne o formaggio + una verdura;5.0
+Fritti;Polenta al Rosmarino;7 pezzi;3.0
+Fritti;Anelli di Cipolla;10 pezzi;3.0
+Fritti;Mozzarella in Carrozza;7 pezzi;3.5
+Dolci;Waffle;nutella o marmellata di fragole;2.5
+Dolci;Crêpe;nutella o marmellata di fragole;3.5
+Dolci;Torta di Mele;a fetta;2.5
+Dolci;Insalata di Frutta;;3.0
+Dolci;Piada Ambrogio;mezza piada con nutella;2.0
+Dolci;Euforia con Nutella;;4.0
+Dolci;Euforia con Marmellata;;4.0
+Dolci;Meme;nutella, panna montata e granella di nocciole;5.0
+Dolci;Crostata di Fragole;a fetta;2.5
+Dolci;Meringa con Nutella e Panna Montata Vegetale;;2.5
+Dolci;Ananas Fresco;;3.0
+Dolci;Tiramisù;;2.0
+Dolci;Panna Cotta Cioccolato;;2.0
+Dolci;Panna Cotta ai Frutti di Bosco;;2.0
+Dolci;Panna Cotta Caramello;;2.0
+Dolci;Piada;;4.0
+Dolci;Salame al Cioccolato;;2.5
+Bevande;Acqua Naturale;50cl;1.0
+Bevande;Acqua Frizzante;50cl;1.0
+Bevande;Bibita in Lattina;;2.0
+Birre;Birra 33cl;;3.0
+Birre;Birra 66cl;;3.5

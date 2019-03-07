@@ -1,0 +1,127 @@
+# Restaurant: Pizzeria Il Portico - Aldini
+# Address: Viale Aldini, 2, Bologna, 40136
+Pizze;Marinara;pomodoro, olio agliato e origano;3.5
+Pizze;Margherita;pomodoro e mozzarella;4.0
+Pizze;Napoletana;pomodoro, mozzarella, acciughe e origano;5.0
+Pizze;Romana;pomodoro, mozzarella, acciughe, capperi e origano;5.5
+Pizze;Siciliana;pomodoro, acciughe, olive, capperi e origano;5.5
+Pizze;Funghi;pomodoro, mozzarella e funghi;5.0
+Pizze;Carciofi;pomodoro, mozzarella e carciofi;5.0
+Pizze;Prosciutto Cotto;pomodoro, mozzarella e prosciutto cotto;5.0
+Pizze;Cipolla;pomodoro, mozzarella e cipolla;5.0
+Pizze;Wurstel;pomodoro, mozzarella e wurstel;5.0
+Pizze;Salsiccia;pomodoro, mozzarella e salsiccia;5.0
+Pizze;Salame Piccante;pomodoro, mozzarella e salame piccante;5.0
+Pizze;Salame;pomodoro, mozzarella e salame normale;5.0
+Pizze;Salsiccia e Pisellini;pomodoro, mozzarella, salsiccia e piselli;6.5
+Pizze;Gorgonzola e Noci;pomodoro, mozzarella, gorgonzola e noci;6.0
+Pizze;Prosciutto Crudo;pomodoro, mozzarella e prosciutto crudo;5.5
+Pizze;Melanzane;pomodoro, mozzarella e melanzane;5.0
+Pizze;Peperoni;pomodoro, mozzarella e peperoni;5.0
+Pizze;Zucchine;pomodoro, mozzarella e zucchine;5.0
+Pizze;Radicchio;pomodoro, mozzarella e radicchio;5.0
+Pizze;Doppia Mozzarella;pomodoro e doppia mozzarella;5.5
+Pizze;Capricciosa;pomodoro, mozzarella, carciofi, prosciutto, funghi e olive;6.0
+Pizze;4 Stagioni;pomodoro, mozzarella, prosciutto, funghi, carciofi e salsiccia;6.0
+Pizze;4 Formaggi;pomodoro, mozzarella, fontina, gorgonzola e grana;6.0
+Pizze;Rustica;pomodoro, mozzarella, salsiccia, cipolla, prosciutto e funghi;6.5
+Pizze;Patate;pomodoro, mozzarella e patate;5.5
+Pizze;Del Portico;a sorpresa;6.5
+Pizze;Verdure;pomodoro, mozzarella e verdure miste;6.0
+Pizze;Tonno e Cipolla;pomodoro, mozzarella, tonno e cipolla;6.0
+Pizze;Saracena;pomodoro fresco e mozzarella;5.5
+Pizze;Speck e Rucola;pomodoro, mozzarella, speck e rucola;6.0
+Pizze;Pugliese;pomodoro, mozzarella, cipolla, grana e olive nere;6.0
+Pizze;Stracchino e Rucola;pomodoro, mozzarella, stracchino e rucola;6.5
+Pizze;Contadina;pomodoro, mozzarella, peperoni, salame piccante e olive nere;6.0
+Pizze;Frutti di Mare;pomodoro e frutti di mare;7.5
+Pizze;Caprese;pomodoro, mozzarella di bufala, basilico e grana;7.0
+Pizze;Carbonara;pomodoro, mozzarella, pancetta, uovo, pepe e grana;7.0
+Pizze;Scamorza;pomodoro, mozzarella e scamorza;5.5
+Pizze;Bresaola;pomodoro, mozzarella e bresaola;8.0
+Pizze;Mortadella;pomodoro, mozzarella e mortadella;4.5
+Pizze;Porcini;pomodoro, mozzarella e funghi porcini;6.5
+Pizze;Porchetta;pomodoro, mozzarella e porchetta;6.0
+Pizze;Salsiccia e Friarelli;mozzarella, salsiccia e friarielli;7.0
+Pizze;Gamberetti;pomodoro, mozzarella e gamberetti;6.5
+Pizze;Asparagi;pomodoro, mozzarella e asparagi;5.5
+Pizze;Broccoli;pomodoro, mozzarella e broccoli;5.5
+Pizze;Spinaci;pomodoro, mozzarella e spinaci;5.5
+Pizze;Brie;pomodoro, mozzarella e brie;5.5
+Pizze;Ricotta;pomodoro, mozzarella e ricotta;5.5
+Pizze;Salsiccia di Prosciutto;pomodoro, mozzarella e salsiccia di prosciutto;4.5
+Pizze;Atomica;pomodoro, mozzarella, funghi e uovo;6.0
+Pizze;Parmigiana;pomodoro, mozzarella, melanzane e grana;6.5
+Pizze;Bufala;pomodoro, mozzarella e mozzarella di bufala;5.5
+Pizze;Pizza Spilinga;pomodoro, mozzarella, gorgonzola, nduja e friarielli;10.0
+Pizze;Pizza Nduja;pomodoro, mozzarella e nduja;6.0
+Pizze;Pizza Vecchia Bologna;carne macinata, grana, funghi e piselli;7.5
+Pizze;Pizza alla Romagnola;stracchino, carne macinata, rucola e mozzarella senza pomodoro;7.0
+Calzoni;Calzone del Portico;a sorpresa;5.5
+Calzoni;Calzone Farcito;pomodoro, mozzarella, prosciutto cotto, carciofi e funghi;5.5
+Calzoni;Calzone Normale;pomodoro e mozzarella;4.0
+Calzoni;Calzone Napoli;pomodoro, mozzarella, ricotta, salame piccante e pepe;6.5
+Focacce;Focaccia Barese;;1.8
+Panini;Panino Normale;farcito a scelta;5.5
+Panini;Panino Gigante;farcito a scelta;7.5
+Panini;Panino Hot Dog;;3.0
+Panini;Rotolo con Prosciutto Cotto;;3.0
+Panini;Rotolo con Prosciutto Crudo;;3.0
+Panini;Rotolo con Speck, Rucola e Mozzarella;;3.0
+Piadine;Piadina con Prosciutto Crudo e Mozzarella;;4.5
+Piadine;Piadina con Mozzarella, Rucola e Prosciutto Crudo;;5.0
+Piadine;Piadina con Mozzarella e Rucola;;4.0
+Piadine;Piadina con Mozzarella e Verdure;;5.0
+Piadine;Piadina con Mozzarella e Pomodoro;;4.0
+Piadine;Piadina con Mozzarella e Porchetta;;5.0
+Piadine;Piadina con Mozzarella e Salsiccia;;4.0
+Piadine;Piadina con Mozzarella e Salame Piccante;;4.0
+Piadine;Piadina con Mozzarella e Salame Normale;;4.0
+Piadine;Piadina con Mozzarella e Mortadella;;4.0
+Piadine;Piadina ai Formaggi;;5.0
+Piadine;Piadina con Mozzarella e Wurstel;;4.0
+Piadine;Piadina con Mozzarella e Funghi;;3.5
+Piadine;Piadina con Mozzarella e Prosciutto Cotto;;4.0
+Piadine;Piadina con Mozzarella e Coppa Grana;;5.5
+Piadine;Piadina con Mozzarella, Bresaola e Rucola;;7.0
+Piadine;Piada con Pasta di Pizza;;3.0
+Panzerotti;Panzerotto Normale;;2.5
+Panzerotti;Panzerotto Grande;;4.5
+Kebab;Panino Kebab;"carne di pollo e tacchino 
+con insalata, patatine, cipolla rossa, pomodori e salsa a scelta tra 
+ketchup o maionese o piccante o salsa yogurt";4.0
+Kebab;Panino Falafel;falafel, insalata, pomodori, cipolla e salsa a scelta;4.0
+Kebab;Roll Kebab;carne di pollo e tacchino con insalata, patatine, cipolla rossa, pomodori e salsa a scelta;4.0
+Kebab;Pizza Kebab;pomodoro, mozzarella, insalata, pomodoro e kebab;7.0
+Primi;Lasagne;;5.5
+Primi;Tagliatelle alla Bolognese;;5.5
+Primi;Pappardelle con Funghi Porcini;;5.5
+Primi;Spaghetti al Pomodoro e Basilico;;5.5
+Primi;Fusilli all'Amatriciana;;5.5
+Primi;Svitati ai 4 Formaggi;;5.5
+Primi;Tortellini Panna e Prosciutto;;5.5
+Primi;Risotto ai Funghi;;5.5
+Primi;Melanzane alla Parmigiana;;5.5
+Secondi;Cotoletta e Patate al Forno;;7.0
+Secondi;Hamburger e Patate al Forno;;6.0
+Secondi;Salsiccia ai Ferri e Patate al Forno;;6.0
+Secondi;Affettato Misto con Piadina;;6.0
+Secondi;Polipo e Patate al Forno;;6.0
+Secondi;Wurstel alla Griglia con Patate al Forno;;6.0
+Insalate;Insalatone;;5.0
+Bevande;Acqua Naturale;;1.0
+Bevande;Acqua Frizzante;;1.0
+Bevande;Bibita in Lattina;;2.0
+Bevande;Bibita 1,35L;;3.5
+Bevande;Succo di Frutta;;2.0
+Bevande;Red Bull;;3.5
+Birre;Birra in Bottiglia 33cl;;3.0
+Birre;Birra in Bottiglia 66cl;;3.5
+Birre;Birra Doppio Malto;in bottiglia;4.0
+Birre;Birra 50cl;;4.0
+Vini;Vino Bianco;"in bottiglia
+75cl";8.0
+Vini;Vino Rosso;"in bottiglia
+75cl";8.0
+Vini;Vino Vegano;;10.0
+Vini;Prosecco;;10.0

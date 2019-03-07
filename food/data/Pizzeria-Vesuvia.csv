@@ -1,0 +1,67 @@
+# Restaurant: Pizzeria Vesuvia
+# Address: Via Giovanni Brugnoli, 17/F, Bologna, 40122
+Pizze Classiche;Margherita;pomodoro, fiordilatte, olio e basilico;4.0
+Pizze Classiche;Marinara;pomodoro, aglio, origano, olio e basilico;3.5
+Pizze Classiche;Piada;sale, olio e rosmarino;2.5
+Pizze Classiche;Nutella;piada con nutella e zucchero a velo;4.0
+Pizze Classiche;Funghi;pomodoro, fiordilatte, funghi, olio e basilico;5.0
+Pizze Classiche;Cotto;pomodoro, fiordilatte, prosciutto cotto, olio e basilico;5.0
+Pizze Classiche;Crudo;pomodoro, fiordilatte, crudo, olio e basilico;6.0
+Pizze Classiche;Salsiccia;pomodoro, fiordilatte, salsiccia, olio e basilico;5.0
+Pizze Classiche;Tonno e Cipolla;pomodoro, fiordilatte, tonno, cipolla, olio e basilico;5.5
+Pizze Classiche;Prosciutto e Funghi;pomodoro, fiordilatte, prosciutto cotto, funghi, olio e basilico;5.5
+Pizze Classiche;4 Stagioni;pomodoro, fiordilatte, funghi, cotto, carciofi, salame, olive, olio e basilico;6.5
+Pizze Classiche;Capricciosa;pomodoro, fiordilatte, funghi, cotto, carciofi, olive e basilico;6.5
+Pizze Classiche;Napoli;pomodoro, fiordilatte, acciughe, origano, olio e basilico;5.0
+Pizze Classiche;Roma;pomodoro, fiordilatte, acciughe, origano, capperi, olio e basilico;5.5
+Pizze Classiche;Sicilia;pomodoro, acciughe, capperi, olive, origano, olio e basilico;5.5
+Pizze Classiche;Parmigiana;pomodoro, fiordilatte, cotto, melanzane, grana, olio e basilico;6.0
+Pizze Classiche;Diavola;pomodoro, fiordilatte, salame piccante, olive, olio e basilico;5.5
+Pizze Classiche;Tedesca;pomodoro, fiordilatte, wurstel, patate, olio e basilico;5.5
+Pizze Classiche;Pugliese;pomodoro, fiordilatte, cipolla, olive, origano, grana, olio e basilico;6.0
+Pizze Classiche;Vegetariana;pomodoro, fiordilatte, verdure miste, olio e basilico;6.5
+Pizze Classiche;Rustica 1;pomodoro, fiordilatte, peperoni, salsiccia, olive, olio e basilico;6.0
+Pizze Classiche;Bufala;pomodoro, mozzarella di bufala, olio e basilico;6.0
+Pizze Classiche;Casereccia;pomodoro, fiordilatte, pancetta, rucola, grana a scaglie, olio e basilico;7.5
+Pizze Classiche;Suina;pomodoro, fiordilatte, salamino piccante, wurstel, salsiccia, olio e basilico;6.0
+Pizze Classiche;Caponata;pomodoro, provola, peperoni, olio e basilico;7.0
+Pizze Speciali;Tricolore;friarielli, provola, pomodorini, olio e basilico;7.0
+Pizze Speciali;Vesuvia;pomodoro, fiordilatte, salame piccante, ricotta, olio e basilico;5.5
+Pizze Speciali;Montanara;provola, funghi porcini, prosciutto crudo, olio e basilico;8.0
+Pizze Speciali;Rustica 2;pomodoro, mozzarella di bufala, pancetta, grana, pepe, olio e basilico;8.0
+Pizze Speciali;Bismarck;pomodoro, fiordilatte, prosciutto cotto, uovo, olio e basilico;5.5
+Pizze Speciali;Mergellina;poco pomodoro, provola, pomodorini, acciughe, origano, olio e basilico;7.5
+Pizze Speciali;Tartufata;fiordilatte, funghi, rucola, olio tartufato, olio e basilico;6.0
+Pizze Speciali;Piennolo;pomodorini del piennolo DOP, bufala DOP, olio e basilico;8.0
+Pizze Speciali;Lucariello;provola, pomodorini gialli, salame dolce, olio e basilico;8.0
+Pizze Speciali;Tartufella;crema di tartufo, provola, porcini, speck, rucola, grana a scaglie, olio e basilico;8.0
+Pizze  Bianche;Saracena;pomodoro, fiordilatte, olive, grana, olio e basilico;6.0
+Pizze  Bianche;Caprese;piada con all'usita pomodorini, mozzarella di bufala, olio e basilico;6.0
+Pizze  Bianche;Sorentina;pomodorini, fiordilatte, prosciutto crudo, rucola, grana a scaglie, olio e basilico;7.5
+Pizze  Bianche;Primavera;piada con all'uscita pomodorini, mozzarella di bufala, prosciutto crudo, rucola, olio e basilico;8.0
+Pizze  Bianche;Fresca;piada all'uscita pomodoro, mozzarella di bufala, rucola, tonno, olive, olio e basilico;7.5
+Pizze  Bianche;Friarielli;mozzarella, salsiccia, friarielli, olio e basilico;7.5
+Pizze  Bianche;4 Formaggi;fiordilatte, formaggi misti, olio e basilico;6.5
+Pizze  Bianche;Trevigiana;fiordilatte, radicchio, gorgonzola, speck, olio e basilico;7.5
+Pizze  Bianche;Calabrisella;fiordilatte, salame piccante, cipolla, olive, grana, olio e basilico;6.5
+Pizze  Bianche;Carbonara;fiordilatte, uova, pancetta, pepe, grana, olio e basilico;7.5
+Pizze  Bianche;Mimosa;fiordilatte, panna, prosciutto cotto, mais, olio e basilico;6.0
+Pizze  Bianche;Chef;fiordilatte, panna, prosciutto cotto, funghi, olio e basilico;6.0
+Pizze  Bianche;Filetto;pomodorini, fiordilatte, olio e basilico;5.0
+Pizze  Bianche;Ginnica;fiordilatte, bresaola, rucola, grana a scaglie, olio e basilico;7.5
+Calzoni;Calzone Classico;pomodoro, fiordilatte, prosciutto cotto, olio e basilico;5.5
+Calzoni;Calzone Napoletano;pomodoro, fiordilatte, ricotta, prosciutto cotto, grana, pepe, olio e basilico;6.5
+Calzoni;Calzone Contadino;pomodoro, fiordilatte, prosciutto cotto, funghi, carciofi, olio e basilico;6.0
+Calzoni;Calzone con Friarielli;provola, salsiccia, friarielli, olio e basilico;8.0
+Calzoni;Calzone Vegetariano;pomodoro, fiordilatte, verdure miste, olio e basilico;6.5
+Insalate;Insalata con Lattuga, Pomodorini e Fiordilatte;;5.5
+Insalate;Insalata con Lattuga, Pomodorini e Tonno;;5.5
+Insalate;Insalata con Lattuga, Pomodorini e Scaglie di Grana;;5.5
+Insalate;Insalata con Lattuga, Pomodorini, Olive e Mais;;5.5
+Insalate;Insalata con Rucola, Pomodorini, Bresaola e Scaglie di Grana;;6.5
+Bevande;Acqua Naturale;50cl;1.0
+Bevande;Acqua Frizzante;50cl;1.0
+Bevande;Bibita in Lattina 33cl;;1.5
+Bevande;Bibita 1.5L;;3.0
+Birre;Birra 33cl;;2.0
+Birre;Birra 66cl;;3.0

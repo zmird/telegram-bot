@@ -1,0 +1,99 @@
+# Restaurant: Pizzeria Nosadella
+# Address: Via Nosadella, 43a, Bologna, 40123
+Menù;Menù Piatto Kebab;carne di pollo e tacchino, insalata, patate fritte, salse indiane, pane, ketchup, maionese e 1 bibita a scelta;6.0
+Menù;Menù Piatto Kebab Misto;carne di vitello e tachino, falafel, indian kebab, insalata, patate fritte, pane, ketchup, maionese e 1 bibita a scelta;6.0
+Menù;Menù Piatto Falafel;falafel, insalate, patate fritte, salse indiane, pane, ketchup, maionese e 1 bibita a scelta;4.5
+Menù;Menù Roll Kebab;kebab, insalata, pomodoro, cipolla, salsa yogurt, ketchup, maionese e 1 bibita a scelta;5.5
+Menù;Menù Panino Falafel;falafel, insalata, patate fritte, salse indiane e 1 bibita a scelta;5.0
+Menù;Seekh Indiano;"insalata, pomodoro, patatine e salsa yogurt
+il menù contiene 1 bibita a scelta";3.5
+Menù;Menù Roll Seekh Indiano;insalata, pomodoro, patate fritte, salsa yogurt, ketchup, maionese e 1 bibita a scelta;5.0
+Menù;Menù Roll Falafel;insalata, falafel, yogurt, patatine fritte, salsa piccante, ketchup, maionese e 1 bibita a scelta;5.0
+Menù;Menù Samosa;"patate, verdure miste, spezie indiane, ceci e 1 bibita a scelta
+3 pezzi";4.0
+Menù;Menù Panino Kebab;kebab, insalata, pomodoro, cipolla, salsa yogurt, ketchup, maionese e 1 bibita a scelta;5.0
+Menù;Hot Dog;il menù contiene 1 bibita a scelta;3.0
+Menù;Hamburger;il menù contiene 1 bibita a scelta;3.5
+Pizze;Margherita;pomodoro e mozzarella;4.0
+Pizze;Marinara;pomodoro, aglio, olio  e origano;3.7
+Pizze;Napoli;pomodoro, mozzarella, acciughe e origano;4.9
+Pizze;Funghi;pomodoro, mozzarella e funghi;4.7
+Pizze;Cotto;pomodoro, mozzarella e prosciutto cotto;4.9
+Pizze;Salsiccia;pomodoro, mozzarella e salsiccia;4.9
+Pizze;Carciofi;pomodoro, mozzarella e carciofi;4.7
+Pizze;Wurstel;pomodoro,mozzarella e wurstel;4.7
+Pizze;Pugliese;pomodoro, mozzarella, cipolla e grana;4.9
+Pizze;Romana;pomodoro, mozzarella, acciughe, capperi e origano;4.9
+Pizze;Speck;pomodoro, mozzarella e speck;5.9
+Pizze;Melanzane;pomodoro, mozzarella e melanzane;4.9
+Pizze;Zucchine;pomodoro, mozzarella e zucchine;4.9
+Pizze;Crudo;pomodoro, mozzarella e prosciutto crudo;5.9
+Pizze;Tonno;pomodoro, mozzarella e tonno;4.9
+Pizze;Siciliana;pomodoro, mozzarella, olive, acciughe, capperi e origano;5.5
+Pizze;Diavola;pomodoro, mozzarella e salame piccante;5.2
+Pizze;Tonno e Cipolla;pomodoro, mozzarella, tonno e cipolla;5.5
+Pizze;4 Stagioni;pomodoro, mozzarella, prosciutto cotto, funghi, carciofi e salsiccia;6.0
+Pizze;4 Formaggi;pomodoro, mozzarella e formaggi misti;6.0
+Pizze;Verdure;pomodoro, mozzarella e verdure miste;5.9
+Pizze;Bufala;pomodoro, mozzarella e mozzarella di bufala;5.7
+Pizze;Porcini;pomodoro, mozzarella e funghi porcini;6.5
+Pizze;Friarielli;pomodoro, mozzarella e friarielli;4.9
+Pizze;Salsiccia e Friarielli;pomodoro, mozzarella, salsiccia e friarielli;5.9
+Pizze;Patatine Fritte;pomodoro, mozzarella e patate fritte;5.0
+Pizze Speciali;Kebab;pomodoro, mozzarella e carne kebab;6.5
+Pizze Speciali;Canadese;pomodoro, mozzarella, wurstel, prosciutto cotto e funghi;5.9
+Pizze Speciali;Contadina;pomodoro, mozzarella, salsiccia, funghi e cipolla;6.0
+Pizze Speciali;Calabrese;pomodoro, mozzarella, salamino, grana, rucola, olive e origano;6.9
+Pizze Speciali;Trevigiana;pomodoro, mozzarella, radicchio, gorgonzola e pancetta;6.5
+Pizze Speciali;Spinaci e Salsiccia;pomodoro, mozzarella, spinaci e salsiccia;5.9
+Pizze Speciali;Rustica;pomodoro, mozzarella, salame, funghi e peperoni;6.0
+Pizze Speciali;Capricciosa;pomodoro, mozzarella, prosciutto cotto, funghi, carciofi e olive;5.9
+Pizze Speciali;Parmigiana;pomodoro, mozzarella, melanzane, prosciutto cotto e grana;5.9
+Pizze Speciali;Terra Mare;pomodoro, mozzarella, frutti di mare e rucola;6.5
+Pizze Speciali;Gorgonzola;pomodoro, mozzarella e gorgonzola;5.0
+Pizze Speciali;Nuccio;pomodorini, mozzarella, prosciutto cotto, cipolla e wurstel;6.0
+Pizze  Bianche;Campana;mozzarella, pomodoro fresco, scamorza e salsiccia;5.8
+Pizze  Bianche;Regina;pomodorini, mozzarella di bufala, funghi porcini e grana;6.8
+Pizze  Bianche;Bologna;mozzarella, panna, speck  e funghi;5.8
+Pizze  Bianche;Biancaneve;mozzarella;3.8
+Pizze  Bianche;Carmela;pomodoro fresco, mozzarella, cipolla e gorgonzola;5.8
+Pizze  Bianche;Carbonara;mozzarella, uovo, pancetta e grana;5.8
+Pizze  Bianche;Amatriciana;pomodoro, mozzarella, pancetta e grana;5.8
+Pizze  Bianche;Patapizza;mozzarella, patate e salsiccia;5.8
+Pizze  Bianche;Saracena;mozzarella, pomodorini, grana e olive;5.9
+Pizze Novità;Valtellina;pomodoro, mozzarella, bresaola, rucola e grana a scaglie;6.5
+Pizze Novità;Capricorno;pomodoro, mozzarella, cipolla, funghi, prosciutto cotto, salsiccia e peperoni;6.5
+Pizze Novità;Primavera;pomodoro, mozzarella, patate e mozzarella di bufala;6.5
+Pizze Novità;Poker;pomodoro, mozzarella, gorgonzola, salame, spinaci e funghi porcini;6.8
+Calzoni;Calzone Semplice;pomodoro, mozzarella, prosciutto cotto e funghi;5.0
+Calzoni;Calzone Farcito;pomodoro, mozzarella, prosciutto cotto, funghi e carciofi;5.0
+Calzoni;Calzone con Verdure;pomodoro, mozzarella, melanzane, zucchine, peperoni e patate;5.5
+Calzoni;Calzone Napoletano;pomodoro, mozzarella, salame piccante e ricotta;5.0
+Piadine;Piadina Semplice;pasta di pizza, olio e origano;2.0
+Piadine;Piadina Valtella;pasta di pizza, bresaola, rucola, grana e olio tartufata;5.5
+Piadine;Piadina Speciale;pasta di pizza, mozzarella di bufala, rucola e pomodorini;5.5
+Piadine;Piadina con Verdure;pasta di pizza e verdure miste;4.5
+Panini;Panino con Stracchino e Rucola;mozzarella, sctracchino e rucola;5.5
+Panini;Panino Alpino;mozzarella, speck, funghi e maionese;5.0
+Panini;Panino Splendido;mozzarella, prosciutto cotto, funghi, rucola e maionese;5.5
+Panini;Panino Imbufalito;mozzarella di bufala, prosciutto cotto e funghi;5.5
+Panini;Panino Rustico;mozzarella, pomodoro, prosciutto crudo e rucola;5.9
+Panini;Panino Vegetariano;mozzarella e verdure miste;5.0
+Panini;Panino Kebab;insalata, patate, kebab, maionese, yogurt e pomodoro;6.0
+Insalatone;Insalatone con Tonno;insalata mista, mais, olive, pomodorini e tonno;5.5
+Insalatone;Insalatone Carolina;insalata verde, pomodoro, mozzarella di bufala e basilico;5.5
+Insalatone;Insalatona con Gambretti;insalata mista, mais, gamberetti e pomodorini;5.5
+Insalatone;Insalatona Primavera;insalata mista, mais, olive, pomodorini e mozzarella;5.5
+Insalatone;Insalatona Janet;radicchio trevisano, rucola, pomodorini, mozzarella di bufala e grana;5.5
+Fritti;Patate Fritte;;2.5
+Dolci;Calzone Nutella;nutella;5.0
+Dolci;Piadina Nutella;pasta di npizza, nutella, noci e zucchero a velo;5.2
+Gelati;Cornetto Algida;;2.0
+Gelati;Magnum Classico;;2.0
+Gelati;Tartufo;;3.0
+Bevande;Acqua Naturale;;1.0
+Bevande;Acqua Frizzante;;1.0
+Bevande;Bibita in Lattina 33cl;;1.5
+Bevande;Bibita 1.5L;;2.8
+Birre;Birra 33cl;;1.6
+Birre;Birra 66cl;;2.5

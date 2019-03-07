@@ -1,0 +1,41 @@
+# Restaurant: Manicò Laboratorio
+# Address: Via Malvolta, 1/A, Bologna, 40137
+Primi;Tagliatelle al Ragù;;8.0
+Primi;Tortellini alla Panna;;9.0
+Primi;Passatelli in Crema di Parmigiano e Bacon;;9.0
+Primi;Passatelli in Crema di Gorgonzola e Noci;;9.0
+Primi;Mezze Maniche con Speck, Panna e Funghi;;8.0
+Primi;Mezze Maniche con Panna, Salsiccia e Zafferano;;8.0
+Hamburger;Cheese Burger;burger di manzo 150g, cheddar, pomodoro e insalata;11.0
+Hamburger;Cheese Bacon Burger;burger di manzo 150g, pomodoro, insalata, cheddar e bacon;12.0
+Hamburger;Manicò Burger;burger di manzo 150g, cipolla caramellata, cheddar, pomodoro e insalata;13.0
+Secondi;Cotoletta Bologna;;9.5
+Secondi;Cotoletta Milano;;8.5
+Secondi;Straccetti con Rucola, Grana e Pomodorini;;8.5
+Secondi;Roast Beef con Sale Grosso e Rosmarino;;9.0
+Secondi;Spezzatino con Patate;;8.5
+Focacce;Focaccia;;1.5
+Contorni;Patate Tonde Croccanti;;4.0
+Contorni;Purè di Patate;;3.5
+Contorni;Piselli con Bacon e Cipolla;;4.0
+Insalate;Insalata Verde;;2.5
+Insalate;Insalata di Pollo;insalata gentilina, pollo, bacon, scaglie di grana e crostini di pane;7.0
+Insalate;Insalata Nizzarda;insalata gentilina, tonno, uova sode, pomodorini, fagiolini e patate lesse;7.0
+Insalate;Insalata Caprese;insalata gentilina, tonno, pomodorini e mozzarella;7.0
+Extra;Bustina di Ketchup;;0.2
+Extra;Bustina di Maionese;;0.2
+Dolci;Mascarpone Liscio;;3.5
+Dolci;Mascarpone con Cioccolato;;4.0
+Dolci;Mascarpone con Amaretti;;4.0
+Dolci;Mascarpone con Nutella;;4.5
+Dolci;Tenerina Liscia;;4.0
+Dolci;Tenerina con Mascarpone;;5.0
+Dolci;Cheesecake con Riso Soffiato, Mascarpone e Nutella;;5.0
+Dolci;Salame di Cioccolato con Mascarpone;;5.0
+Dolci;Salame al Cioccolato;;4.0
+Bevande;Acqua Naturale;50cl;1.0
+Bevande;Acqua Frizzante;50cl;1.0
+Bevande;Bibita;;2.5
+Birre;Menabrea 33cl;;3.0
+Birre;Ichnusa Non Filtrata 50cl;;4.0
+Birre;Heineken 66cl;;4.0
