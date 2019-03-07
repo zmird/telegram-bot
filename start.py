@@ -1,7 +1,11 @@
 import settings, importlib
-from common import bot, logger
+from common import bot, logger, help_text
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import database
+
+
+def help(bot, update):
+    update.message.reply_text(help_text)
 
 
 def main():
@@ -28,6 +32,8 @@ def main():
         except Exception as e:
             logger.debug(e)
             continue
+
+    updater.dispatcher.add_handler(CommandHandler("help", help))
 
     # Start the Bot
     bot.start_polling()

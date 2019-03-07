@@ -1,71 +1,9 @@
-import urllib.request, csv
+import urllib.request, csv, re
 from common import logger
 from .model import Restaurant, Category, Item
 from bs4 import BeautifulSoup
 #from http.cookiejar import CookieJar
 from slugify import slugify
-
-def print_menu(menu):
-    with open("menu.csv", "w") as f:
-        writer = csv.writer(f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        for category in menu.keys():            
-            for product in menu[category]:
-                writer.writerow([
-                    category,
-                    product["name"],
-                    product["description"],
-                    product["price"]
-                ])
-
-
-def insert_csv_in_database():
-    logger.debug("Inserting data in database....")
-    restaurant = Restaurant.select().where(Restaurant.name == "Pizzeria del Rondone")
-    if not restaurant:
-        restaurant = Restaurant.insert(
-            name="Pizzeria del Rondone",
-            address="Via del Rondone, Bologna, 40122"
-        ).execute()
-        with open("food/menu.csv") as f:
-            csv_reader = csv.reader(f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            for row in csv_reader:
-                category = Category.select().where(Category.name == row[0])
-                if not category:
-                    category = Category.insert(
-                        name=row[0],
-                        restaurant=restaurant
-                    ).execute()
-                
-                
-                Item.insert(
-                    name=row[1],
-                    description=row[2],
-                    price=row[3],
-                    category=category
-                ).execute()
-
-
-def insert_menu_database(restaurant, address, menu):
-    restaurant = Restaurant.select().where(Restaurant.name == restaurant)
-    if not restaurant:
-        restaurant = Restaurant.insert(
-            name=restaurant,
-            address=address
-        ).execute()
-    for category, items in menu.items():
-        category = Category.select().where(Category.name == category)
-        if not category:
-            category = Category.insert(
-                name=category,
-                restaurant=restaurant
-            ).execute()
-        for item in items:
-            Item.insert(
-                name=item["name"],
-                description=item["description"],
-                price=item["price"],
-                category=category
-            ).execute()
 
 
 def insert_in_database(restaurant_name, address, menu):
@@ -77,7 +15,7 @@ def insert_in_database(restaurant_name, address, menu):
             slug=slugify(restaurant_name)
         ).execute()
         for category_name, items in menu.items():
-            category = Category.select().where(Category.name == category_name)
+            category = Category.select().where((Category.name == category_name) & (Category.restaurant == restaurant))
             if not category:
                 category = Category.insert(
                     name=category_name,
@@ -97,6 +35,7 @@ def insert_in_database(restaurant_name, address, menu):
                         logger.error("Failed to insert item {name}!".format(name=item["name"]))
                         logger.error(e)
 
+
 def generate_csv(restaurant, address, menu):
     logger.debug("Generating csv file for Restaurant {name}...".format(name=restaurant))
     restaurant_slug = slugify(restaurant)
@@ -104,7 +43,7 @@ def generate_csv(restaurant, address, menu):
         f.write("# Restaurant: {name}\n# Address: {address}\n".format(name=restaurant, address=address))
         fieldnames=["category", "name", "description", "price"]
         csv_writer = csv.DictWriter(f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL, fieldnames=fieldnames)
-        csv_writer.writeheader()
+        #csv_writer.writeheader()
         for category in menu.keys():
             for item in menu[category]:
                 csv_writer.writerow({
@@ -113,6 +52,36 @@ def generate_csv(restaurant, address, menu):
                     "description": item["description"],
                     "price": item["price"]
                 })
+
+
+def read_csv(file_csv):
+    f = open(file_csv, 'r')
+    name, address, *rest = f.readlines()
+    data = {
+        "name": name.split(":")[1].strip(),
+        "address": address.split(":")[1].strip(),
+        "menu": {}
+    }
+    f.close()
+
+    with open(file_csv, 'r') as f:
+        fieldnames=["category", "name", "description", "price"]
+        csv_reader = csv.DictReader(f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL, fieldnames=fieldnames)
+        for row in csv_reader:
+            if "#" in row["category"]:
+                continue
+
+            item = {
+                "name": row["name"],
+                "description": row["description"],
+                "price": float(row["price"])
+            }
+            if row["category"] not in data["menu"]:
+                data["menu"][row["category"]] = [item]
+            else:
+                data["menu"][row["category"]].append(item)
+            
+        return data
 
 
 def scrape_and_download(url):
@@ -138,12 +107,15 @@ def scrape_and_download(url):
                     attribute = None
                 finally:
                     return attribute
-
-            menu[category].append({
-                "name": get_attribute(".product-title"),
-                "description": get_attribute(".product-description"),
-                "price": get_attribute(".product-price")
-            })
+                    
+            try:
+                menu[category].append({
+                    "name": get_attribute(".product-title"),
+                    "description": get_attribute(".product-description"),
+                    "price": float(re.findall("[-+]?[0-9]*\.?[0-9]+", get_attribute(".product-price").replace(',', '.'))[0])
+                })
+            except:
+                logger.debug("Failed to extract item information from page...")
 
     #print_menu(menu)
     return menu
@@ -174,12 +146,14 @@ def scrape(html_file):
                     attribute = None
                 finally:
                     return attribute
-
-            menu[category].append({
-                "name": get_attribute(".product-title"),
-                "description": get_attribute(".product-description"),
-                "price": get_attribute(".product-price")
-            })
+            try:
+                menu[category].append({
+                    "name": get_attribute(".product-title"),
+                    "description": get_attribute(".product-description"),
+                    "price": float(re.findall("[-+]?[0-9]*\.?[0-9]+", get_attribute(".product-price").replace(',', '.'))[0])
+                })
+            except:
+                logger.debug("Failed to extract item information from page...")
 
     #print_menu(menu)
     return {

@@ -12,13 +12,4 @@ APPLICATIONS = [
     "food"
 ]
 
-RESTAURANTS = [
-    {
-        "name": "Oshi Pokè Bowls",
-        "url": "https://www.justeat.it/restaurants-oshipokebowls/menu"
-    },
-    {
-        "name": "Pizzeria del Rondone",
-        "url": "https://www.justeat.it/restaurants-pizzeriadelrondone-bologna/menu"
-    }
-]
+RESTAURANT_DEFAULT = ""

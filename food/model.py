@@ -1,11 +1,14 @@
 from database import BaseModel
-from peewee import CharField, ForeignKeyField
+from peewee import CharField, IntegerField, FloatField, DateTimeField, ForeignKeyField, BooleanField
 from database import database_proxy
+import datetime
+
 
 class Restaurant(BaseModel):
     name = CharField(unique=True)
     slug = CharField(unique=True)
     address = CharField()
+    selected = BooleanField(default=False)
 
 
 class Category(BaseModel):
@@ -25,7 +28,7 @@ class Item(BaseModel):
     name = CharField()
     slug = CharField()
     description = CharField(null=True)
-    price = CharField()
+    price = FloatField()
 
     class Meta:
         indexes = (
@@ -33,5 +36,27 @@ class Item(BaseModel):
             (('slug', 'category'), True),
         )
 
-models = [Restaurant, Category, Item]
+class Order(BaseModel):
+    username = CharField()
+    user_id = CharField()
+    chat_id = CharField()
+
+    class Meta:
+        indexes = (
+            (('user_id', 'chat_id'), True),
+        )
+
+class OrderItem(BaseModel):
+    order = ForeignKeyField(Order)
+    item = ForeignKeyField(Item)
+    quantity = IntegerField()
+    created_date = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        indexes = (
+            (('order', 'item'), True),
+        )
+
+
+models = [Restaurant, Category, Item, Order, OrderItem]
 database_proxy.create_tables(models, safe=True)
