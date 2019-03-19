@@ -12,7 +12,7 @@ class Restaurant(BaseModel):
 
 
 class Category(BaseModel):
-    restaurant = ForeignKeyField(Restaurant)
+    restaurant = ForeignKeyField(Restaurant, on_delete='CASCADE')
     name = CharField()
     slug = CharField()
 
@@ -24,7 +24,7 @@ class Category(BaseModel):
 
 
 class Item(BaseModel):
-    category = ForeignKeyField(Category)
+    category = ForeignKeyField(Category, on_delete='CASCADE')
     name = CharField()
     slug = CharField()
     description = CharField(null=True)
@@ -36,7 +36,9 @@ class Item(BaseModel):
             (('slug', 'category'), True),
         )
 
+
 class Order(BaseModel):
+    name = CharField()
     username = CharField()
     user_id = CharField()
     chat_id = CharField()
@@ -46,8 +48,9 @@ class Order(BaseModel):
             (('user_id', 'chat_id'), True),
         )
 
+
 class OrderItem(BaseModel):
-    order = ForeignKeyField(Order)
+    order = ForeignKeyField(Order, on_delete='CASCADE')
     item = ForeignKeyField(Item)
     quantity = IntegerField()
     created_date = DateTimeField(default=datetime.datetime.now)

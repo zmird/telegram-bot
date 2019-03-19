@@ -1,4 +1,4 @@
-def help():
+def help_text():
     text = "I can help you create and keep track of orders.\n"
     
     text += """

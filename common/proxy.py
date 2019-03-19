@@ -29,3 +29,4 @@ class Proxy(object):
 
 
 bot_proxy = Proxy()
+job_queue_proxy = Proxy()
