@@ -2,7 +2,6 @@ import urllib.request, csv, re
 from common import logger
 from .model import Restaurant, Category, Item
 from bs4 import BeautifulSoup
-#from http.cookiejar import CookieJar
 from slugify import slugify
 
 
@@ -43,7 +42,7 @@ def generate_csv(restaurant, address, menu):
         f.write("# Restaurant: {name}\n# Address: {address}\n".format(name=restaurant, address=address))
         fieldnames=["category", "name", "description", "price"]
         csv_writer = csv.DictWriter(f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL, fieldnames=fieldnames)
-        #csv_writer.writeheader()
+        # csv_writer.writeheader()
         for category in menu.keys():
             for item in menu[category]:
                 csv_writer.writerow({

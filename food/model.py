@@ -42,18 +42,23 @@ class Order(BaseModel):
     username = CharField()
     user_id = CharField()
     chat_id = CharField()
+    created_date = DateTimeField(default=datetime.datetime.now)
+    modified_date = DateTimeField(default=datetime.datetime.now)
 
     class Meta:
         indexes = (
             (('user_id', 'chat_id'), True),
         )
 
+    def save(self, *args, **kwargs):
+        self.modified_date = datetime.datetime.now()
+        return super(Order, self).save(*args, **kwargs)
+
 
 class OrderItem(BaseModel):
     order = ForeignKeyField(Order, on_delete='CASCADE')
     item = ForeignKeyField(Item)
     quantity = IntegerField()
-    created_date = DateTimeField(default=datetime.datetime.now)
 
     class Meta:
         indexes = (
