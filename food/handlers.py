@@ -2,11 +2,12 @@ from common import bot_proxy, logger
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CommandHandler, CallbackQueryHandler, RegexHandler
 from .model import Category, Item, Order, OrderItem, Restaurant
-import telegram, math
+import telegram, math, datetime
 
 RESTAURANT_PER_PAGE = 4
 CATEGORIES_PER_PAGE = 4
 ITEMS_PER_PAGE = 5
+ORDER_TIMEOUT = 2 # seconds
 
 
 def navigation_buttons(prefix, current_page, last_page):
@@ -64,7 +65,7 @@ def restaurants(bot, update):
         update.message.reply_text(text="Seleziona un ristorante:", reply_markup=InlineKeyboardMarkup(keyboard))
 
 
-"""TODO"""
+"""TODO: this call let the user choose which restaurant to want they order from"""
 def select_restaurant(bot, update):
     pass
 
@@ -144,13 +145,25 @@ def category(bot, update):
 
 
 def order(bot, update):
-    # Argument: selected item
-    item_id = int(update.message.text.replace('/order_', '').split('@')[0])
+    try:
+        # Argument: selected item
+        item_id = int(update.message.text.replace('/order_', '').split('@')[0])
+    except:
+        logger.info("Food order handler: Failed to parse {} as an item id".format(update.message.text))
+        return
 
     try:
         # Selected item
-        item = Item.get(Item.id == item_id)
-
+        item = (Item
+            .select()
+            .join(Category)
+            .join(Restaurant)
+            .where((Category.id == Item.category) 
+                    & (Restaurant.id == Category.restaurant)
+                    & (Restaurant.selected == True) 
+                    & (Item.id == item_id))
+            .get())
+        
         # User informations
         username = update.message.from_user.username
         name = update.message.from_user.first_name
@@ -166,6 +179,9 @@ def order(bot, update):
         if not order.exists():
             order = Order.create(chat_id=chat_id, user_id=user_id, username=username, name=name)
             order.save()
+        elif (datetime.datetime.now() - order.get().modified_date).total_seconds() < ORDER_TIMEOUT:
+            logger.info("Food order handler: timeout for user {}, two orders is less than {}.".format(username, ORDER_TIMEOUT))
+            return
 
         # If the item was already ordered then increase quantity
         order_item = OrderItem.select().where((OrderItem.order == order) & (OrderItem.item == item))

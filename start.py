@@ -16,7 +16,7 @@ def main():
     bot_proxy.initialize(updater)
     job_queue_proxy.initialize(updater.job_queue)
 
-    """Imports all applications"""
+    """Dynamically imports all applications"""
     for application in settings.APPLICATIONS:
         try:
             logger.info("Importing application " + application)
