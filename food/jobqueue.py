@@ -11,6 +11,9 @@ def delete_orders_periodically(bot, job):
     logger.debug("Periodical deletion of orders")
     orders = Order.select(Order.id, Order.chat_id, Order.modified_date, fn.Max(Order.modified_date))
 
+    if orders.count() == 0:
+        return
+    
     for order in orders:
         if (datetime.datetime.now() - order.modified_date).total_seconds() > ORDER_EXPIRES_AFTER:
             order.delete().execute()
