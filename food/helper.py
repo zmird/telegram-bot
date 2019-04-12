@@ -1,6 +1,6 @@
 def help_text():
     text = "I can help you create and keep track of orders.\n"
-    
+
     text += """
     /menu - see the menu
     /myorder - see what you ordered

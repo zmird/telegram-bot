@@ -1,4 +1,5 @@
-import settings, importlib
+import settings
+import importlib
 from common import bot_proxy, job_queue_proxy, logger, help_message
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import database
@@ -23,7 +24,8 @@ def main():
             importlib.import_module(application)  # Dinamic import
         except Exception as e:
             logger.error(e)
-            logger.error("Failed to import application {application} ".format(application=application))
+            logger.error("Failed to import application {application} ".format(
+                application=application))
             raise
 
     updater.dispatcher.add_handler(CommandHandler("help", help))

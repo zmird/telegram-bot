@@ -1,4 +1,5 @@
-import os, importlib
+import os
+import importlib
 from peewee import SqliteDatabase
 from settings import APPLICATIONS, DEBUG
 from common import logger

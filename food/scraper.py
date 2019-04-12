@@ -1,4 +1,6 @@
-import urllib.request, csv, re
+import urllib.request
+import csv
+import re
 from common import logger
 from .model import Restaurant, Category, Item
 from bs4 import BeautifulSoup
@@ -14,7 +16,8 @@ def insert_in_database(restaurant_name, address, menu):
             slug=slugify(restaurant_name)
         ).execute()
         for category_name, items in menu.items():
-            category = Category.select().where((Category.name == category_name) & (Category.restaurant == restaurant))
+            category = Category.select().where((Category.name == category_name)
+                                               & (Category.restaurant == restaurant))
             if not category:
                 category = Category.insert(
                     name=category_name,
@@ -31,17 +34,21 @@ def insert_in_database(restaurant_name, address, menu):
                             category=category
                         ).execute()
                     except Exception as e:
-                        logger.error("Failed to insert item {name}!".format(name=item["name"]))
+                        logger.error(
+                            "Failed to insert item {name}!".format(name=item["name"]))
                         logger.error(e)
 
 
 def generate_csv(restaurant, address, menu):
-    logger.debug("Generating csv file for Restaurant {name}...".format(name=restaurant))
+    logger.debug(
+        "Generating csv file for Restaurant {name}...".format(name=restaurant))
     restaurant_slug = slugify(restaurant)
     with open("food/data/{slug}.csv".format(slug=restaurant_slug), "w") as f:
-        f.write("# Restaurant: {name}\n# Address: {address}\n".format(name=restaurant, address=address))
-        fieldnames=["category", "name", "description", "price"]
-        csv_writer = csv.DictWriter(f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL, fieldnames=fieldnames)
+        f.write("# Restaurant: {name}\n# Address: {address}\n".format(
+            name=restaurant, address=address))
+        fieldnames = ["category", "name", "description", "price"]
+        csv_writer = csv.DictWriter(
+            f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL, fieldnames=fieldnames)
         # csv_writer.writeheader()
         for category in menu.keys():
             for item in menu[category]:
@@ -64,8 +71,9 @@ def read_csv(file_csv):
     f.close()
 
     with open(file_csv, 'r') as f:
-        fieldnames=["category", "name", "description", "price"]
-        csv_reader = csv.DictReader(f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL, fieldnames=fieldnames)
+        fieldnames = ["category", "name", "description", "price"]
+        csv_reader = csv.DictReader(
+            f, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL, fieldnames=fieldnames)
         for row in csv_reader:
             if "#" in row["category"]:
                 continue
@@ -79,7 +87,7 @@ def read_csv(file_csv):
                 data["menu"][row["category"]] = [item]
             else:
                 data["menu"][row["category"]].append(item)
-            
+
         return data
 
 
@@ -106,7 +114,7 @@ def scrape_and_download(url):
                     attribute = None
                 finally:
                     return attribute
-                    
+
             try:
                 menu[category].append({
                     "name": get_attribute(".product-title"),
@@ -116,7 +124,7 @@ def scrape_and_download(url):
             except:
                 logger.debug("Failed to extract item information from page...")
 
-    #print_menu(menu)
+    # print_menu(menu)
     return menu
 
 
@@ -125,8 +133,10 @@ def scrape(html_file):
 
     # Initialize parser
     soup = BeautifulSoup(contents, 'html.parser')
-    name = soup.find("h1", attrs={"class": "infoTextBlock-item-title"}).get_text().strip()
-    address = soup.find("p", attrs={"class": "restInfoAddress"}).get_text().strip() 
+    name = soup.find(
+        "h1", attrs={"class": "infoTextBlock-item-title"}).get_text().strip()
+    address = soup.find(
+        "p", attrs={"class": "restInfoAddress"}).get_text().strip()
     address = ' '.join(address.split())
 
     # Scrape menu data
@@ -154,7 +164,7 @@ def scrape(html_file):
             except:
                 logger.debug("Failed to extract item information from page...")
 
-    #print_menu(menu)
+    # print_menu(menu)
     return {
         'name': name,
         'address': address,

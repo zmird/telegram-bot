@@ -18,7 +18,9 @@ for f in listdir("food/webpages"):
 for f in listdir("food/data"):
     if re.search(".*.csv", f):
         results = read_csv("food/data/{}".format(f))
-        insert_in_database(results['name'], results['address'], results['menu'])
+        insert_in_database(
+            results['name'], results['address'], results['menu'])
 
 
-Restaurant.update({Restaurant.selected: True}).where(Restaurant.name == "Pizzeria Vesuvia").execute()
+Restaurant.update({Restaurant.selected: True}).where(
+    Restaurant.name == "Pizzeria Vesuvia").execute()
