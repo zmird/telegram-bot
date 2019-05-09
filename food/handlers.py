@@ -231,8 +231,8 @@ def order(bot, update):
             # Disable response because chat flooding
             # update.message.reply_text("Added another {item_name} to order".format(item_name=item.name))
     except Exception as e:
-        logger.debug(e)
-        update.message.reply_text("Error: failed to create make order.")
+        logger.error(e)
+        update.message.reply_text("Error: failed to create order.")
 
 
 def delete_order(bot, update):
