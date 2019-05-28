@@ -12,6 +12,8 @@ ITEMS_PER_PAGE = 5
 ORDER_TIMEOUT = 2  # seconds
 
 
+# Provides navigation buttons for list of comands
+# 'prefix' is the prefix of the command, example '/order_'
 def navigation_buttons(prefix, current_page, last_page):
     # Calculate next page
     next_page = current_page+1 if current_page+1 <= last_page else last_page
@@ -35,6 +37,7 @@ def navigation_buttons(prefix, current_page, last_page):
     return buttons
 
 
+# List available restaurants
 def restaurants(bot, update):
     # Get current page
     current_page = int(update.callback_query.data.split("_")
@@ -78,104 +81,113 @@ def restaurants(bot, update):
 
 
 """TODO: this call let the user choose which restaurant to want they order from"""
-
-
 def select_restaurant(bot, update):
     pass
 
 
-# Menu alias
+# List available categories of a restaurant
 def categories(bot, update):
-    # Parse current page argument
-    current_page = int(update.callback_query.data.split("_")
-                       [1]) if update.callback_query else 1
+    try:
+        # Parse current page argument
+        current_page = int(update.callback_query.data.split("_")
+                        [1]) if update.callback_query else 1
 
-    # Retrieve current active restaurant for next query
-    restaurant_selected = Restaurant.select().where(
-        Restaurant.selected == True).get()
+        # Retrieve current active restaurant for next query
+        restaurant_selected = Restaurant.select().where(
+            Restaurant.selected == True).get()
 
-    # Retrieve restaurant menu
-    all_categories = Category.select().where(
-        Category.restaurant == restaurant_selected)
+        # Retrieve restaurant menu
+        all_categories = Category.select().where(
+            Category.restaurant == restaurant_selected)
 
-    # Get page
-    category_page = all_categories.paginate(
-        page=current_page, paginate_by=CATEGORIES_PER_PAGE)
+        # Get page
+        category_page = all_categories.paginate(
+            page=current_page, paginate_by=CATEGORIES_PER_PAGE)
 
-    # Retrieve total page number
-    total_pages = math.ceil(len(all_categories) / CATEGORIES_PER_PAGE)
+        # Retrieve total page number
+        total_pages = math.ceil(len(all_categories) / CATEGORIES_PER_PAGE)
 
-    # List category page
-    keyboard = []
-    for c in category_page:
-        keyboard.append(
-            [InlineKeyboardButton(
-                c.name, callback_data="category_{}_1".format(c.id))]
-        )
+        # List category page
+        keyboard = []
+        for c in category_page:
+            keyboard.append(
+                [InlineKeyboardButton(
+                    c.name, callback_data="category_{}_1".format(c.id))]
+            )
 
-    # If there is more than one page then navigation buttons are needed
-    if total_pages > 1:
-        keyboard.append(navigation_buttons(
-            "categories", current_page, total_pages))
+        # If there is more than one page then navigation buttons are needed
+        if total_pages > 1:
+            keyboard.append(navigation_buttons(
+                "categories", current_page, total_pages))
 
-    # If 'callback_query' is defined means that we are responding to a click on an already existing message that
-    # needs to be edit
-    if update.callback_query:
-        update.callback_query.edit_message_text(text="Seleziona una categoria:",
-                                                reply_markup=InlineKeyboardMarkup(keyboard))
-    else:
-        update.message.reply_text(
-            text="Seleziona una categoria:", reply_markup=InlineKeyboardMarkup(keyboard))
+        # If 'callback_query' is defined means that we are responding to a click on an already existing message that
+        # needs to be edit
+        if update.callback_query:
+            update.callback_query.edit_message_text(text="Seleziona una categoria:",
+                                                    reply_markup=InlineKeyboardMarkup(keyboard))
+        else:
+            update.message.reply_text(
+                text="Seleziona una categoria:", reply_markup=InlineKeyboardMarkup(keyboard))
+    except Error as e:
+        logger.error("Failed 'categories' handler")
+        logger.error("Error context: {}".format(update))
+        logger.error(e)
 
 
+# List items in a single category
 def category(bot, update):
-    # Retrieve arguments: category and current page
-    category_selected = int(update.callback_query.data.split("_")[
-                            1]) if update.callback_query else 1
-    current_page = int(update.callback_query.data.split("_")
-                       [2]) if update.callback_query else 1
+    try:
+        # Retrieve arguments: category and current page
+        category_selected = int(update.callback_query.data.split("_")[
+                                1]) if update.callback_query else 1
+        current_page = int(update.callback_query.data.split("_")
+                        [2]) if update.callback_query else 1
 
-    # Retrieve category from database
-    category = Category.select().where(Category.id == category_selected).get()
+        # Retrieve category from database
+        category = Category.select().where(Category.id == category_selected).get()
 
-    # Retrieve items in category
-    all_items = Item.select().where(Item.category == category)
+        # Retrieve items in category
+        all_items = Item.select().where(Item.category == category)
 
-    item_page = all_items.paginate(
-        page=current_page, paginate_by=ITEMS_PER_PAGE)
+        item_page = all_items.paginate(
+            page=current_page, paginate_by=ITEMS_PER_PAGE)
 
-    # Calculate total possible pages
-    total_pages = math.ceil(len(all_items)/ITEMS_PER_PAGE)
+        # Calculate total possible pages
+        total_pages = math.ceil(len(all_items)/ITEMS_PER_PAGE)
 
-    # Message containing items in selected category
-    text = "Category '{name}'\npage {current}/{total}\n-------------------\n" \
-        .format(name=category.name, current=current_page, total=total_pages)
-    for item in item_page:
-        text += "<b>{name}</b>  {price:.2f} €\n<i>{description}</i>\n/order_{item_id}\n\n" \
-            .format(name=item.name, price=item.price, description=item.description, item_id=item.id)
+        # Message containing items in selected category
+        text = "Category '{name}'\npage {current}/{total}\n-------------------\n" \
+            .format(name=category.name, current=current_page, total=total_pages)
+        for item in item_page:
+            text += "<b>{name}</b>  {price:.2f} €\n<i>{description}</i>\n/order_{item_id}\n\n" \
+                .format(name=item.name, price=item.price, description=item.description, item_id=item.id)
 
-    # Control buttons
-    keyboard = []
+        # Control buttons
+        keyboard = []
 
-    # If there is more than one page then navigation buttons are needed
-    if total_pages > 1:
-        keyboard.append(navigation_buttons("category_{}".format(
-            category_selected), current_page, total_pages))
+        # If there is more than one page then navigation buttons are needed
+        if total_pages > 1:
+            keyboard.append(navigation_buttons("category_{}".format(
+                category_selected), current_page, total_pages))
 
-    # Button to return to category list
-    keyboard.append([InlineKeyboardButton(
-        "Categories", callback_data="categories_1")])
+        # Button to return to category list
+        keyboard.append([InlineKeyboardButton(
+            "Categories", callback_data="categories_1")])
 
-    update.callback_query.edit_message_text(text=text, parse_mode=telegram.ParseMode.HTML,
-                                            reply_markup=InlineKeyboardMarkup(keyboard))
+        update.callback_query.edit_message_text(text=text, parse_mode=telegram.ParseMode.HTML,
+                                                reply_markup=InlineKeyboardMarkup(keyboard))
+    except Error as e:
+        logger.info("Failed 'category' handler")
+        logger.info("Error context: {}".format(update))
+        logger.error(e)
 
-
+# Add an item to a user order in a specific chat
 def order(bot, update):
     try:
         # Argument: selected item
         item_id = int(update.message.text.replace('/order_', '').split('@')[0])
     except:
-        logger.info("Food order handler: Failed to parse {} as an item id".format(
+        logger.error("Food order handler: Failed to parse {} as an item id".format(
             update.message.text))
         return
 
@@ -207,6 +219,7 @@ def order(bot, update):
             order = Order.create(
                 chat_id=chat_id, user_id=user_id, username=username, name=name)
             order.save()
+            logger.info("Added new food order for user {}.".format(username))
         elif (datetime.datetime.now() - order.get().modified_date).total_seconds() < ORDER_TIMEOUT:
             logger.info("Food order handler: timeout for user {}, two orders is less than {}.".format(
                 username, ORDER_TIMEOUT))
@@ -223,6 +236,7 @@ def order(bot, update):
             ).execute()
             # Disable response because chat flooding
             # update.message.reply_text("Added {item_name} to order".format(item_name=item.name))
+            logger.info("Added item {} to order of user {}.".format(item.name, username))
         else:
             OrderItem \
                 .update({OrderItem.quantity: OrderItem.quantity+1}) \
@@ -230,101 +244,127 @@ def order(bot, update):
                 .execute()
             # Disable response because chat flooding
             # update.message.reply_text("Added another {item_name} to order".format(item_name=item.name))
+            logger.info("Added item {} to existing order of user {}.".format(item.name, username))
     except Exception as e:
+        logger.error("Failed 'order' handler")
+        logger.error("Error context: {}".format(update))
         logger.error(e)
         update.message.reply_text("Error: failed to create order.")
 
 
 def delete_order(bot, update):
-    # user that requested the item
-    user_id = update.message.from_user.id
-    chat_id = update.message.chat.id
+    try:
+        # user that requested the item
+        user_id = update.message.from_user.id
+        chat_id = update.message.chat.id
 
-    # Delete order, 'OrderItem' associated will be deleted too
-    Order.delete().where((Order.user_id == user_id) &
-                         (Order.chat_id == chat_id)).execute()
-    update.message.reply_text("Deleted order")
+        # Delete order, 'OrderItem' associated will be deleted too
+        Order.delete().where((Order.user_id == user_id) &
+                            (Order.chat_id == chat_id)).execute()
+        update.message.reply_text("Deleted order")
+        logger.info("Deleted order of user with id {} in chat with id {}.".format(user_id, chat_id))
+    except Error as e:
+        logger.error("Failed 'order' handler")
+        logger.error("Error context: {}".format(update))
+        logger.error(e)
+        update.message.reply_text("Error: failed to delete order.")
 
 
 def myorder(bot, update):
-    # Source user and chat
-    user_id = update.message.from_user.id
-    chat_id = update.message.chat.id
+    try:
+        # Source user and chat
+        user_id = update.message.from_user.id
+        chat_id = update.message.chat.id
 
-    # Retrieve order
-    order = Order.select().where((Order.user_id == user_id) & (Order.chat_id == chat_id))
+        # Retrieve order
+        order = Order.select().where((Order.user_id == user_id) & (Order.chat_id == chat_id))
 
-    if not order.exists():
-        update.message.reply_text("You order is empty")
-        return
+        if not order.exists():
+            update.message.reply_text("You order is empty")
+            return
 
-    total_price = 0
-    text = ""
-    for order_item in OrderItem.select().where(OrderItem.order == order):
-        text += "{item_name}  <b>x{quantity}</b>\n".format(
-            item_name=order_item.item.name, quantity=order_item.quantity)
-        total_price += order_item.item.price * order_item.quantity
+        total_price = 0
+        text = ""
+        for order_item in OrderItem.select().where(OrderItem.order == order):
+            text += "{item_name}  <b>x{quantity}</b>\n".format(
+                item_name=order_item.item.name, quantity=order_item.quantity)
+            total_price += order_item.item.price * order_item.quantity
 
-    text += "\nTotal price: {total:.2f} €".format(total=total_price)
-    update.message.reply_text(text=text, parse_mode=telegram.ParseMode.HTML)
+        text += "\nTotal price: {total:.2f} €".format(total=total_price)
+        update.message.reply_text(text=text, parse_mode=telegram.ParseMode.HTML)
+    except Error as e:
+        logger.error("Failed 'myorder' handler")
+        logger.error("Error context: {}".format(update))
+        logger.error(e)
 
 
 def summary(bot, update):
-    # Source chat
-    chat_id = update.message.chat.id
+    try:
+        # Source chat
+        chat_id = update.message.chat.id
 
-    # Retrieve all items
-    items = {}
-    for order_item in OrderItem.select(OrderItem, Order).join(Order).where(OrderItem.order.chat_id == chat_id):
-        item = order_item.item
-        if item in items:
-            items[item] += order_item.quantity
-        else:
-            items[item] = order_item.quantity
+        # Retrieve all items
+        items = {}
+        for order_item in OrderItem.select(OrderItem, Order).join(Order).where(OrderItem.order.chat_id == chat_id):
+            item = order_item.item
+            if item in items:
+                items[item] += order_item.quantity
+            else:
+                items[item] = order_item.quantity
 
-    if len(items) == 0:
-        update.message.reply_text("No order created yet")
-        return
+        if len(items) == 0:
+            update.message.reply_text("No order created yet")
+            return
 
-    total_price = 0
-    text = ""
-    for item in items.keys():
-        text += "<b>x{quantity}</b>  <i>{item_name}</i>\n".format(
-            item_name=item.name, quantity=items[item])
-        total_price += item.price * items[item]
+        total_price = 0
+        text = ""
+        for item in items.keys():
+            text += "<b>x{quantity}</b>  <i>{item_name}</i>\n".format(
+                item_name=item.name, quantity=items[item])
+            total_price += item.price * items[item]
 
-    text += "\nTotal price: {total:.2f} €".format(total=total_price)
-    update.message.reply_text(text=text, parse_mode=telegram.ParseMode.HTML)
+        text += "\nTotal price: {total:.2f} €".format(total=total_price)
+        update.message.reply_text(text=text, parse_mode=telegram.ParseMode.HTML)
+    except Error as e:
+        logger.info("Failed 'summary' handler")
+        logger.info("Error context: {}".format(update.message))
+        logger.error(e)
 
 
 def listorders(bot, update):
-    # Source chat
-    chat_id = update.message.chat.id
+    try:
+        # Source chat
+        chat_id = update.message.chat.id
 
-    # Retrieve all orders
-    orders = Order.select().where(Order.chat_id == chat_id)
+        # Retrieve all orders
+        orders = Order.select().where(Order.chat_id == chat_id)
 
-    if orders.count() == 0:
-        update.message.reply_text(
-            text="No order has been made yet.", parse_mode=telegram.ParseMode.HTML)
-        return
+        if orders.count() == 0:
+            update.message.reply_text(
+                text="No order has been made yet.", parse_mode=telegram.ParseMode.HTML)
+            return
 
-    # List order by user
-    text = ""
-    for order in orders:
-        user_first_name = order.name
-        total_price = 0
-        text += "<b>{name}</b>:\n".format(name=user_first_name)
-        for order_item in OrderItem.select().where(OrderItem.order == order):
-            text += "<i>{name}</i> <b>x{quantity}</b>  ".format(
-                name=order_item.item.name, quantity=order_item.quantity)
-            total_price += order_item.item.price * order_item.quantity
+        # List order by user
+        text = ""
+        for order in orders:
+            user_first_name = order.name
+            total_price = 0
+            text += "<b>{name}</b>:\n".format(name=user_first_name)
+            for order_item in OrderItem.select().where(OrderItem.order == order):
+                text += "<i>{name}</i> <b>x{quantity}</b>  ".format(
+                    name=order_item.item.name, quantity=order_item.quantity)
+                total_price += order_item.item.price * order_item.quantity
 
-        text += "\n<b>{total:.2f}</b> €\n\n".format(total=total_price)
+            text += "\n<b>{total:.2f}</b> €\n\n".format(total=total_price)
 
-    update.message.reply_text(text=text, parse_mode=telegram.ParseMode.HTML)
+        update.message.reply_text(text=text, parse_mode=telegram.ParseMode.HTML)
+    except Error as e:
+        logger.info("Failed 'listorders' handler")
+        logger.info("Error context: {}".format(update.message))
+        logger.error(e)
 
 
+# This are the handler for selecting a restaurants
 # bot_proxy.dispatcher.add_handler(CallbackQueryHandler(restaurants, pattern="^restaurants_[\d]+$"))
 # bot_proxy.dispatcher.add_handler(CallbackQueryHandler(select_restaurant, pattern="^restaurant_[\d]+_[\d]+$"))
 # bot_proxy.dispatcher.add_handler(CommandHandler('restaurants', restaurants))
