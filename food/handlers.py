@@ -219,9 +219,9 @@ def order(bot, update):
             order = Order.create(
                 chat_id=chat_id, user_id=user_id, username=username, name=name)
             order.save()
-            logger.info("Added new food order for user {}.".format(username))
+            logger.info("Added new food order for user {} with name {}.".format(username, name))
         elif (datetime.datetime.now() - order.get().modified_date).total_seconds() < ORDER_TIMEOUT:
-            logger.info("Food order handler: timeout for user {}, two orders is less than {}.".format(
+            logger.info("Food order handler: timeout for user {}, two orders in less than {}.".format(
                 username, ORDER_TIMEOUT))
             return
 
@@ -234,17 +234,17 @@ def order(bot, update):
                 item=item,
                 quantity=1
             ).execute()
-            # Disable response because chat flooding
+            # Disable reply because chat flooding
             # update.message.reply_text("Added {item_name} to order".format(item_name=item.name))
-            logger.info("Added item {} to order of user {}.".format(item.name, username))
+            logger.info("Added item {} to order of user {} with name {}.".format(item.name, username, name))
         else:
             OrderItem \
                 .update({OrderItem.quantity: OrderItem.quantity+1}) \
                 .where(OrderItem.order == order and OrderItem.item == item) \
                 .execute()
-            # Disable response because chat flooding
+            # Disabled reply because chat flooding
             # update.message.reply_text("Added another {item_name} to order".format(item_name=item.name))
-            logger.info("Added item {} to existing order of user {}.".format(item.name, username))
+            logger.info("Added another item {} in existing order of user {}.".format(item.name, username))
     except Exception as e:
         logger.error("Failed 'order' handler")
         logger.error("Error context: {}".format(update))
@@ -255,6 +255,8 @@ def order(bot, update):
 def delete_order(bot, update):
     try:
         # user that requested the item
+        username = update.message.from_user.username
+        first_name = update.message.from_user.first_name
         user_id = update.message.from_user.id
         chat_id = update.message.chat.id
 
@@ -262,7 +264,7 @@ def delete_order(bot, update):
         Order.delete().where((Order.user_id == user_id) &
                             (Order.chat_id == chat_id)).execute()
         update.message.reply_text("Deleted order")
-        logger.info("Deleted order of user with id {} in chat with id {}.".format(user_id, chat_id))
+        logger.info("Deleted order of user with id {} with username {} and name {} in chat with id {}.".format(user_id, username, first_name, chat_id))
     except Error as e:
         logger.error("Failed 'order' handler")
         logger.error("Error context: {}".format(update))

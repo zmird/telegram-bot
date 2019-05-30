@@ -39,7 +39,7 @@ class Item(BaseModel):
 
 class Order(BaseModel):
     name = CharField()
-    username = CharField()
+    username = CharField(null=True)
     user_id = CharField()
     chat_id = CharField()
     created_date = DateTimeField(default=datetime.datetime.now)
