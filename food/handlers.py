@@ -1,7 +1,7 @@
 from common import bot_proxy, logger
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CommandHandler, CallbackQueryHandler, RegexHandler
-from .model import Category, Item, Order, OrderItem, Restaurant
+from .model import Category, Item, Order, OrderItem, Restaurant, ReceivedMessage
 import telegram
 import math
 import datetime
@@ -210,6 +210,12 @@ def order(bot, update):
 
         # Chat where the order is coming from
         chat_id = update.message.chat.id
+        message_id = update.message.message_id
+
+        # If the message has already been received then we abort
+        received_message = ReceivedMessage.select().where(ReceivedMessage.message_id == message_id)
+        if received_message.exists():
+            return
 
         # Retrieve order created by the user
         order = Order.select().where((Order.user_id == user_id) & (Order.chat_id == chat_id))
@@ -235,7 +241,7 @@ def order(bot, update):
                 quantity=1
             ).execute()
             # Disable reply because chat flooding
-            # update.message.reply_text("Added {item_name} to order".format(item_name=item.name))
+            update.message.reply_text("Added {item_name} to order".format(item_name=item.name))
             logger.info("Added item {} to order of user {} with name {}.".format(item.name, username, name))
         else:
             OrderItem \
@@ -243,8 +249,11 @@ def order(bot, update):
                 .where(OrderItem.order == order and OrderItem.item == item) \
                 .execute()
             # Disabled reply because chat flooding
-            # update.message.reply_text("Added another {item_name} to order".format(item_name=item.name))
+            update.message.reply_text("Added another {item_name} to order".format(item_name=item.name))
             logger.info("Added another item {} in existing order of user {}.".format(item.name, username))
+
+        # Insert this message id into the received message list to avoid duplicated messages
+        ReceivedMessage.insert(message_id=message_id).execute()
     except Exception as e:
         logger.error("Failed 'order' handler")
         logger.error("Error context: {}".format(update))

@@ -65,6 +65,8 @@ class OrderItem(BaseModel):
             (('order', 'item'), True),
         )
 
+class ReceivedMessage(BaseModel):
+    message_id = CharField()
 
-models = [Restaurant, Category, Item, Order, OrderItem]
+models = [Restaurant, Category, Item, Order, OrderItem, ReceivedMessage]
 database_proxy.create_tables(models, safe=True)
