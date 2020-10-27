@@ -4,7 +4,7 @@ beautifulsoup4==4.7.1
 bs4==0.0.1
 certifi==2018.11.29
 cffi==1.12.1
-cryptography==2.5
+cryptography==3.2
 future==0.17.1
 peewee==3.8.2
 pycparser==2.19
